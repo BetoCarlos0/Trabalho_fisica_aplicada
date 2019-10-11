@@ -3,17 +3,15 @@
 #define PUSHBUTTONCAMPOELETRICO A5
 
 //========================TELA LCD=======================
-#include <LiquidCrystal.h>							
-LiquidCrystal lcd(2, 3, 4, 5, 6, 7);				//||
-													//||
+#include <LiquidCrystal.h>		
+LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
 
 //========================TECLADO========================
 #include <Keypad.h>									
-byte pinosLinhas[]  = {12,11,10,9};					//||
-													//||
-byte pinosColunas[] = {8,A0,A1,A2};					//||
-													//||
-char teclas[4][4] = {{'1','2','3','A'},				//||
+byte pinosLinhas[]  = {12,11,10,9};
+byte pinosColunas[] = {8,A0,A1,A2};
+
+char teclas[4][4] = {{'1','2','3','A'},
                      {'4','5','6','B'},
                      {'7','8','9','C'},
                      {'*','0','#','D'}};
@@ -31,12 +29,11 @@ byte divisao[8]={
   B00100,};
 
 //========================CONVERT=======================
-bool isNegative = false;							//||
-long convert(long numList[], byte cont){			//||
-	long numero=0; Serial.println();				//||
-  													//||
-  	for(int i = 0; i <= cont; i++){					//||
-        for(int j = i+1; j <= cont; j++){			//||
+bool isNegative = false;
+long convert(long numList[], byte cont){
+	long numero=0; Serial.println();
+  	for(int i = 0; i <= cont; i++){
+        for(int j = i+1; j <= cont; j++){
         	numList[i] = numList[i] * 10;
         }
         numero += numList[i];
@@ -71,11 +68,11 @@ void funcao(char tp,long numList[], byte cont){
 }
 
 //==================VARIAVEIS GLOBAIS==================
-long numList[16], numero1=0, numero2, resultLong;	//||
-float Q=0, q=0, auxForce=0;							//||
-float result = 0, raio = 0;							//||
-bool pressBut = true, force = false;				//||
-char oper;											//||
+long numList[16], numero1=0, numero2, resultLong;
+float Q=0, q=0, auxForce=0;
+float result = 0, raio = 0;
+bool pressBut = true, force = false;
+char oper;
 byte Qq = 0, buttonStateFor =0, cont = -1, dec = -1;
 byte buttonStateCE=0, ForceOrCE = 0;
 int exQ=0, exq=0, exR=0;
